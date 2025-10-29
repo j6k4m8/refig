@@ -4,9 +4,7 @@ version = "0.1.0"
 description = "Minimally-invasive reproducibility helpers for matplotlib figures."
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = [
-    "matplotlib>=3.8",
-]
+dependencies = ["matplotlib>=3.8"]
 
 [project.scripts]
 refig = "refig.cli:main"
