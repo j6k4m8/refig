@@ -1,4 +1,6 @@
-# refig
+<p align=center>
+<img width="303" height="192" alt="Image" src="https://github.com/user-attachments/assets/c52f23a7-f106-4dc0-b715-5a1ee211cc78" />
+</p>
 
 refig is a Python library for minimally-invasive reproducibility in Jupyter notebooks, with a focus on figures and plots.
 
