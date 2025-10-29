@@ -29,6 +29,7 @@ When you save a figure, refig will automatically save the figure along with a st
 -   The cell number (if applicable / available)
 -   The date and time the figure was generated
 -   The git commit hash (if applicable / available)
+-   The installed `refig` package version
 
 You can view these metadata by loading the figure with refig:
 

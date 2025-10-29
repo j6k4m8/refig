@@ -7,6 +7,8 @@ import subprocess
 import traceback
 from dataclasses import dataclass
 from datetime import datetime, timezone
+from functools import lru_cache
+from importlib import metadata as importlib_metadata
 from pathlib import Path
 from typing import Any, Dict, Mapping, Optional
 
@@ -106,6 +108,7 @@ def _build_metadata(path: Path, extra: Optional[Mapping[str, Any]]) -> Dict[str,
         "source": _infer_source_path(),
         "cell_number": _infer_cell_number(),
         "git_commit": _infer_git_commit(),
+        "refig_version": _get_refig_version(),
     }
     if extra:
         metadata.update(dict(extra))
@@ -189,6 +192,14 @@ def _infer_git_commit() -> Optional[str]:
     except (subprocess.CalledProcessError, FileNotFoundError):
         return None
     return result.stdout.strip() or None
+
+
+@lru_cache(maxsize=1)
+def _get_refig_version() -> Optional[str]:
+    try:
+        return importlib_metadata.version("refig")
+    except importlib_metadata.PackageNotFoundError:
+        return None
 
 
 def _is_library_path(path: Path) -> bool:
